@@ -1,5 +1,5 @@
 import { expect, it, describe, beforeEach } from 'vitest'
-import { RegisterService } from './register'
+import { RegisterService } from '../register'
 import { compare } from 'bcryptjs';
 import { UserArleadyExistError } from '@/services/errors/user-arleady-exist-error';
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository';
@@ -7,13 +7,13 @@ import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-user
 let usersRepository: InMemoryUsersRepository
 let sut: RegisterService
 
-beforeEach(() => {
-	usersRepository = new InMemoryUsersRepository()
-	sut = new RegisterService(usersRepository)
-})
-
-
 describe('Register services', () => {
+	beforeEach(() => {
+		usersRepository = new InMemoryUsersRepository()
+		sut = new RegisterService(usersRepository)
+	})
+	
+
 	it('should be able to register', async () => {
 		const { user } = await sut.execute({
 			name: 'Teste',
