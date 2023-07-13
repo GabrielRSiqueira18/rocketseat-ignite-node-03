@@ -13,7 +13,7 @@ interface GymServiceResponse {
 	gym: Gym
 }
 
-export class GymService {
+export class CreateGymService {
 	constructor(private gymsRepository: GymsRepository) {}
 
 	async execute({ description, latitude, longitude, phone, title }: GymServiceRequest): Promise<GymServiceResponse> {

@@ -10,7 +10,7 @@ interface SearchGymRequestResponse {
 	gyms: Gym[]
 }
 
-export class SearchGymRequest {
+export class SearchGymService {
 	constructor(private gymsRepository: GymsRepository) {}
 
 	async execute({ page, query }: SearchGymRequestRequest): Promise<SearchGymRequestResponse> {

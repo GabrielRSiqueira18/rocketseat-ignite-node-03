@@ -6,7 +6,6 @@ export interface FindManyNearbyParams {
 }
 
 export interface GymsRepository {
-	items: Gym[]
 	findById(id: string): Promise<Gym | null>
 	findManyNearby(params: FindManyNearbyParams): Promise<Gym[]>
 	searchMany(query: string, page: number): Promise<Gym[]>
